@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("Hello World");
+
+        let humanScore = 0;
+        let computerScore = 0;
+
+        function getComputerChoice() {
+            // random number from 0 to 2
+            const choice = Math.floor(Math.random() * 3);
+
+            if (choice === 0) {
+                return "rock";
+            } else if (choice === 1) {
+                return "paper";
+            } else {
+                return "scissors";
+            }
+        }
+
+        //console.log(getComputerChoice());
+
+        function getHumanChoice() {
+            return prompt("Rock, Paper, Scissors, What is your choice?").toLowerCase();
+        }
+
+        //console.log(getHumanChoice());
+
+        function playRound(humanChoice, computerChoice) {
+            if (humanChoice === "rock" && computerChoice === "paper") {
+                computerScore++;
+                return "You lose! Paper beats Rock";
+            } else if (humanChoice === "rock" && computerChoice === "scissors") {
+                humanScore++;
+                return "You won! Rock beats Scissors";
+            } else if (humanChoice === "paper" && computerChoice === "scissors") {
+                computerScore++;
+                return "You lose! Scissors beats Paper";
+            } else if (humanChoice === "paper" && computerChoice === "rock") {
+                humanScore++;
+                return "You won! Paper beats Rock";
+            } else if (humanChoice === "scissors" && computerChoice === "rock") {
+                computerScore++;
+                return "You lose! Rock beats Scissors";
+            } else if (humanChoice === "scissors" && computerChoice === "paper") {
+                humanScore++;
+                return "You won! Scissors beats Paper";
+            } else {
+                return "Draw!";
+            }
+        }
+
+        //const humanSelection = getHumanChoice();
+        //const computerSelection = getComputerChoice();
+
+        //console.log(playRound(humanSelection, computerSelection));
+
+        function playGame() {
+            for (let i = 1; i <= 5 ; i++) {
+                const humanSelection = getHumanChoice();
+                const computerSelection = getComputerChoice();
+
+                console.log(playRound(humanSelection, computerSelection));
+            }
+            
+            if (humanScore < computerScore) {
+                return "You lose! Score: " + humanScore + " to " + computerScore;
+            } else if (humanScore > computerScore) {
+                return "You win! Score: " + humanScore + " to " + computerScore;
+            } else {
+                return "Draw! Score: " + humanScore + " to " + computerScore;
+            }
+        }
+
+        console.log(playGame());
+
+    </script>
+</body>
+</html>
