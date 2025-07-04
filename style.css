@@ -1,8 +1,8 @@
 body {
     display: flex;
     flex-direction: column;
-    font-family: Fantasy, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin: 0;
+    font-family: Copperplate, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 50px;
     min-height: 100vh;
 }
 
@@ -10,22 +10,33 @@ body {
     margin: 25px;
 }
 
+a {
+    text-decoration: none;
+    color: rgb(64, 64, 64);
+}
+
+button {
+    margin: 15px;
+    padding: 5px;
+}
+
 h1 {
     color: rgb(64, 64, 64);
     font-size: 32px;
     text-align: center;
+    margin: 0px;
 }
 
 p {
     color: rgb(64, 64, 64);
     font-size: 16px;
     text-align: center;
+    margin: 0px;
 }
 
 .characters {
     display: flex;
-    justify-content: space-around;
-    margin: 25px;
+    justify-content: center;
 }
 
 .characters p {
@@ -38,15 +49,19 @@ p {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    margin: 50px;
 }
 
-.scores, .winnerDisplay, .restart {
+.scores, .winnerDisplay {
     text-align: center;
     margin: 10px
 }
 
-.winnerDisplay, .restart {
+.winnerDisplay {
     font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer p {
@@ -60,36 +75,48 @@ p {
     display: flex;
     justify-content: center;
 }
-button {
-    font-family: inherit;
-    border-radius: 10%;
-}
 
-.button-54 {
-  font-size: 16px;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: rgb(64, 64, 64);
+button, .button-54 {
+  font-family: Copperplate;
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 6px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
   cursor: pointer;
-  border: 3px solid;
-  padding: 5px;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  display: inline-flex;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
   position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin: 5px;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button-54:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button-54:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
 }
 
 .button-54:active {
-  box-shadow: 0px 0px 0px 0px;
-  top: 5px;
-  left: 5px;
-}
-
-@media (min-width: 768px) {
-  .button-54 {
-    padding: 0.25em 0.75em;
-  }
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
 }

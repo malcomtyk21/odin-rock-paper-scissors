@@ -6,7 +6,6 @@ const scissorsBtn = document.querySelector("#scissorsBtn");
 const scores = document.querySelector(".scores");
 const newP = document.createElement("p");
 const winnerDisplay = document.querySelector(".winnerDisplay");
-const restart = document.querySelector(".restart")
 const restartBtn = document.createElement("button");
 
 
@@ -88,15 +87,15 @@ function winner() {
         rockBtn.disabled = true;
         paperBtn.disabled = true;
         scissorsBtn.disabled = true;
-        restartBtn.textContent = 'restart?'
-        restart.appendChild(restartBtn);
+        restartBtn.textContent = 'Restart?'
+        winnerDisplay.appendChild(restartBtn);
     } else if (computerScore == 5) {
         winnerDisplay.textContent = "Oh no! The computer won!";
         rockBtn.disabled = true;
         paperBtn.disabled = true;
         scissorsBtn.disabled = true;
-        restartBtn.textContent = 'restart?'
-        restart.appendChild(restartBtn);
+        restartBtn.textContent = 'Restart?'
+        winnerDisplay.appendChild(restartBtn);
     }
 }
 
@@ -126,11 +125,11 @@ restartBtn.addEventListener('click', () => {
     computerScore = 0;
     winnerDisplay.textContent = '';
     newP.textContent = '';
-    restart.removeChild(restartBtn);
     rockBtn.disabled = false;
     paperBtn.disabled = false;
     scissorsBtn.disabled = false;
     result();
+    winnerDisplay.removeChild(restartBtn);
 })
 
 
