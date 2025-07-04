@@ -1,0 +1,95 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Fantasy, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.header {
+    margin: 25px;
+}
+
+h1 {
+    color: rgb(64, 64, 64);
+    font-size: 32px;
+    text-align: center;
+}
+
+p {
+    color: rgb(64, 64, 64);
+    font-size: 16px;
+    text-align: center;
+}
+
+.characters {
+    display: flex;
+    justify-content: space-around;
+    margin: 25px;
+}
+
+.characters p {
+    color: rgb(64, 64, 64);
+    font-size: 32px;
+}
+
+.player, .computer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.scores, .winnerDisplay, .restart {
+    text-align: center;
+    margin: 10px
+}
+
+.winnerDisplay, .restart {
+    font-size: 24px;
+}
+
+.footer p {
+    margin: 50px;
+    color: rgb(64, 64, 64);
+    text-align: center;
+    font-size: 16px;
+}
+
+.allButtons {
+    display: flex;
+    justify-content: center;
+}
+button {
+    font-family: inherit;
+    border-radius: 10%;
+}
+
+.button-54 {
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: rgb(64, 64, 64);
+  cursor: pointer;
+  border: 3px solid;
+  padding: 5px;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 5px;
+}
+
+.button-54:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .button-54 {
+    padding: 0.25em 0.75em;
+  }
+}

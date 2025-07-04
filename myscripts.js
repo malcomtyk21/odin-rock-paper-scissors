@@ -1,10 +1,16 @@
-console.log("Hello World");
-
 let humanScore = 0;
 let computerScore = 0;
+const rockBtn = document.querySelector("#rockBtn");
+const paperBtn = document.querySelector("#paperBtn");
+const scissorsBtn = document.querySelector("#scissorsBtn");
+const scores = document.querySelector(".scores");
+const newP = document.createElement("p");
+const winnerDisplay = document.querySelector(".winnerDisplay");
+const restart = document.querySelector(".restart")
+const restartBtn = document.createElement("button");
+
 
 function getComputerChoice() {
-    // random number from 0 to 2
     const choice = Math.floor(Math.random() * 3);
 
     if (choice === 0) {
@@ -16,49 +22,50 @@ function getComputerChoice() {
     }
 }
 
-//console.log(getComputerChoice());
-
-function getHumanChoice() {
-    return prompt("Rock, Paper, Scissors, What is your choice?").toLowerCase();
+function getHumanChoice(choice) {
+    console.log(choice);
+    return choice;
 }
-
-//console.log(getHumanChoice());
 
 function playRound(humanChoice, computerChoice) {
+    let msg = '';
+
     if (humanChoice === "rock" && computerChoice === "paper") {
         computerScore++;
-        return "You lose! Paper beats Rock";
+        msg = "You lose! Paper beats Rock";
     } else if (humanChoice === "rock" && computerChoice === "scissors") {
         humanScore++;
-        return "You won! Rock beats Scissors";
+        msg = "You won! Rock beats Scissors";
     } else if (humanChoice === "paper" && computerChoice === "scissors") {
         computerScore++;
-        return "You lose! Scissors beats Paper";
+        msg = "You lose! Scissors beats Paper";
     } else if (humanChoice === "paper" && computerChoice === "rock") {
         humanScore++;
-        return "You won! Paper beats Rock";
+        msg = "You won! Paper beats Rock";
     } else if (humanChoice === "scissors" && computerChoice === "rock") {
         computerScore++;
-        return "You lose! Rock beats Scissors";
+        msg = "You lose! Rock beats Scissors";
     } else if (humanChoice === "scissors" && computerChoice === "paper") {
         humanScore++;
-        return "You won! Scissors beats Paper";
+        msg = "You won! Scissors beats Paper";
     } else {
-        return "Draw!";
+        msg = "Draw!";
     }
+
+    result();
+    winner();
+    return msg;
 }
 
-//const humanSelection = getHumanChoice();
-//const computerSelection = getComputerChoice();
-
-//console.log(playRound(humanSelection, computerSelection));
-
 function playGame() {
+
     for (let i = 1; i <= 5 ; i++) {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
+        const scoreStatement = document.createElement("div");
 
-        console.log(playRound(humanSelection, computerSelection));
+        score.appendChild(scoreStatement);
+        scoreStatement.textContent = playRound(humanSelection, computerSelection);
     }
     
     if (humanScore < computerScore) {
@@ -70,4 +77,61 @@ function playGame() {
     }
 }
 
-console.log(playGame());
+function result() {
+    humanScoreDisplay.textContent = humanScore;
+    computerScoreDisplay.textContent = computerScore;
+}
+
+function winner() {
+    if (humanScore == 5) {
+        winnerDisplay.textContent = "Congrats! You won!";
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorsBtn.disabled = true;
+        restartBtn.textContent = 'restart?'
+        restart.appendChild(restartBtn);
+    } else if (computerScore == 5) {
+        winnerDisplay.textContent = "Oh no! The computer won!";
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorsBtn.disabled = true;
+        restartBtn.textContent = 'restart?'
+        restart.appendChild(restartBtn);
+    }
+}
+
+rockBtn.addEventListener('click', () => {
+    const statement = playRound("paper", getComputerChoice());
+
+    scores.appendChild(newP);
+    newP.textContent = statement;
+});
+
+paperBtn.addEventListener('click', () => {
+    const statement = playRound("paper", getComputerChoice());
+
+    scores.appendChild(newP);
+    newP.textContent = statement;
+});
+
+scissorsBtn.addEventListener('click', () => {
+    const statement = playRound("scissors", getComputerChoice());
+    
+    scores.appendChild(newP);
+    newP.textContent = statement;
+});
+
+restartBtn.addEventListener('click', () => {
+    humanScore = 0;
+    computerScore = 0;
+    winnerDisplay.textContent = '';
+    newP.textContent = '';
+    restart.removeChild(restartBtn);
+    rockBtn.disabled = false;
+    paperBtn.disabled = false;
+    scissorsBtn.disabled = false;
+    result();
+})
+
+
+
